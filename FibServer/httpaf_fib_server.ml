@@ -97,7 +97,6 @@ let main ~net port backlog =
   Switch.run @@ fun sw ->
   let ssock = Eio.Net.listen net ~sw ~reuse_addr:true ~backlog @@ `Tcp (Eio.Net.Ipaddr.V4.loopback, port) in
   traceln "Echo server listening on 127.0.0.1:%d" port;
-  (* traceln "Starting %d domains..." n_domains; *)
     Fiber.fork ~sw (fun () ->
       run_domain ssock
     )
@@ -110,14 +109,8 @@ let polling_timeout =
   )
 
 let () = 
-  (* let n_domains =
-    match Sys.getenv_opt "HTTPAF_EIO_DOMAINS" with
-    | Some d -> int_of_string d
-    | None -> 1
-  in *)
   Eio_linux.run ~queue_depth:2048 ?polling_timeout @@ fun env ->
   T.run pool @@ fun () -> 
   main 8080 128
     ~net:(Eio.Stdenv.net env)
-    (* ~domain_mgr:(Eio.Stdenv.domain_mgr env) *)
-    (* ~n_domains *)
+  
