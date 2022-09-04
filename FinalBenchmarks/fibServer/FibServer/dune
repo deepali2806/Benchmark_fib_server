@@ -1,5 +1,0 @@
-(executable 
- (name httpaf_fib_server)
- (libraries domainslib eio_main httpaf httpaf-eio faraday angstrom logs.fmt containers))
-
-(vendored_dirs vendor)

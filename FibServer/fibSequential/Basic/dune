@@ -1,0 +1,9 @@
+
+(executable
+  (name fibServerSequential)
+  (enabled_if (= %{system} "linux"))
+  (modules fibServerSequential)
+  (libraries domainslib unix str logs.fmt fmt.tty eio_linux eio_main)
+   (modes byte exe)
+  )
+

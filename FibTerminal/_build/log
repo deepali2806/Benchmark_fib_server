@@ -1,0 +1,118 @@
+# dune build FibTerminalHttpaf.exe
+# OCAMLPARAM: unset
+# Shared cache: disabled
+# Workspace root: /home/deepali/Music/Benchmark_fib_server/FibTerminal
+# Auto-detected concurrency: 4
+$ /home/deepali/.opam/trunk/bin/ocamlc.opt -config > /tmp/dune_01e890_output
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; for_host = None
+#  ; fdo_target_exe = None
+#  ; build_dir = "default"
+#  ; toplevel_path = Some External "/home/deepali/.opam/trunk/lib/toplevel"
+#  ; ocaml_bin = External "/home/deepali/.opam/trunk/bin"
+#  ; ocaml = Ok External "/home/deepali/.opam/trunk/bin/ocaml"
+#  ; ocamlc = External "/home/deepali/.opam/trunk/bin/ocamlc.opt"
+#  ; ocamlopt = Ok External "/home/deepali/.opam/trunk/bin/ocamlopt.opt"
+#  ; ocamldep = Ok External "/home/deepali/.opam/trunk/bin/ocamldep.opt"
+#  ; ocamlmklib = Ok External "/home/deepali/.opam/trunk/bin/ocamlmklib.opt"
+#  ; env =
+#      map
+#        { "DUNE_OCAML_HARDCODED" : "/home/deepali/.opam/trunk/lib"
+#        ; "DUNE_OCAML_STDLIB" : "/home/deepali/.opam/trunk/lib/ocaml"
+#        ; "DUNE_SOURCEROOT" :
+#            "/home/deepali/Music/Benchmark_fib_server/FibTerminal"
+#        ; "INSIDE_DUNE" :
+#            "/home/deepali/Music/Benchmark_fib_server/FibTerminal/_build/default"
+#        ; "OCAMLFIND_IGNORE_DUPS_IN" :
+#            "/home/deepali/Music/Benchmark_fib_server/FibTerminal/_build/install/default/lib"
+#        ; "OCAMLPATH" :
+#            "/home/deepali/Music/Benchmark_fib_server/FibTerminal/_build/install/default/lib"
+#        ; "OCAMLTOP_INCLUDE_PATH" :
+#            "/home/deepali/Music/Benchmark_fib_server/FibTerminal/_build/install/default/lib/toplevel"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
+#  ; findlib_paths = [ External "/home/deepali/.opam/trunk/lib" ]
+#  ; arch_sixtyfour = true
+#  ; natdynlink_supported = true
+#  ; supports_shared_libraries = true
+#  ; ocaml_config =
+#      { version = "5.0.0+dev4-2022-06-14"
+#      ; standard_library_default = "/home/deepali/.opam/trunk/lib/ocaml"
+#      ; standard_library = "/home/deepali/.opam/trunk/lib/ocaml"
+#      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
+#      ; ccomp_type = "cc"
+#      ; c_compiler = "gcc"
+#      ; ocamlc_cflags =
+#          [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-pthread"; "-fPIC" ]
+#      ; ocamlc_cppflags = [ "-D_FILE_OFFSET_BITS=64" ]
+#      ; ocamlopt_cflags =
+#          [ "-O2"; "-fno-strict-aliasing"; "-fwrapv"; "-pthread"; "-fPIC" ]
+#      ; ocamlopt_cppflags = [ "-D_FILE_OFFSET_BITS=64" ]
+#      ; bytecomp_c_compiler =
+#          [ "gcc"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-pthread"
+#          ; "-fPIC"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-ldl"; "-lpthread" ]
+#      ; native_c_compiler =
+#          [ "gcc"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-pthread"
+#          ; "-fPIC"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ]
+#      ; native_c_libraries = [ "-lm"; "-ldl"; "-lpthread" ]
+#      ; native_pack_linker = [ "ld"; "-r"; "-o" ]
+#      ; cc_profile = []
+#      ; architecture = "amd64"
+#      ; model = "default"
+#      ; int_size = 63
+#      ; word_size = 64
+#      ; system = "linux"
+#      ; asm = [ "as" ]
+#      ; asm_cfi_supported = true
+#      ; with_frame_pointers = false
+#      ; ext_exe = ""
+#      ; ext_obj = ".o"
+#      ; ext_asm = ".s"
+#      ; ext_lib = ".a"
+#      ; ext_dll = ".so"
+#      ; os_type = "Unix"
+#      ; default_executable_name = "a.out"
+#      ; systhread_supported = true
+#      ; host = "x86_64-pc-linux-gnu"
+#      ; target = "x86_64-pc-linux-gnu"
+#      ; profiling = false
+#      ; flambda = false
+#      ; spacetime = false
+#      ; safe_string = true
+#      ; exec_magic_number = "Caml1999X032"
+#      ; cmi_magic_number = "Caml1999I032"
+#      ; cmo_magic_number = "Caml1999O032"
+#      ; cma_magic_number = "Caml1999A032"
+#      ; cmx_magic_number = "Caml1999Y032"
+#      ; cmxa_magic_number = "Caml1999Z032"
+#      ; ast_impl_magic_number = "Caml1999M032"
+#      ; ast_intf_magic_number = "Caml1999N032"
+#      ; cmxs_magic_number = "Caml1999D032"
+#      ; cmt_magic_number = "Caml1999T032"
+#      ; natdynlink_supported = true
+#      ; supports_shared_libraries = true
+#      ; windows_unicode = false
+#      }
+#  }
+$ (cd _build/default && /home/deepali/.opam/trunk/bin/ocamldep.opt -modules -impl FibTerminalHttpaf.ml) > _build/default/.FibTerminalHttpaf.eobjs/FibTerminalHttpaf.ml.d
+$ (cd _build/default && /home/deepali/.opam/trunk/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I .FibTerminalHttpaf.eobjs/byte -I /home/deepali/.opam/trunk/lib/bigarray-compat -I /home/deepali/.opam/trunk/lib/bigstringaf -I /home/deepali/.opam/trunk/lib/cstruct -I /home/deepali/.opam/trunk/lib/ctypes -I /home/deepali/.opam/trunk/lib/domainslib -I /home/deepali/.opam/trunk/lib/eio -I /home/deepali/.opam/trunk/lib/eio/unix -I /home/deepali/.opam/trunk/lib/eio/utils -I /home/deepali/.opam/trunk/lib/eio_domainslib_interface -I /home/deepali/.opam/trunk/lib/eio_linux -I /home/deepali/.opam/trunk/lib/eio_luv -I /home/deepali/.opam/trunk/lib/eio_main -I /home/deepali/.opam/trunk/lib/faraday -I /home/deepali/.opam/trunk/lib/fmt -I /home/deepali/.opam/trunk/lib/integers -I /home/deepali/.opam/trunk/lib/logs -I /home/deepali/.opam/trunk/lib/luv -I /home/deepali/.opam/trunk/lib/luv/c -I /home/deepali/.opam/trunk/lib/luv/c_function_descriptions -I /home/deepali/.opam/trunk/lib/luv/c_type_descriptions -I /home/deepali/.opam/trunk/lib/luv_unix -I /home/deepali/.opam/trunk/lib/lwt-dllist -I /home/deepali/.opam/trunk/lib/mtime -I /home/deepali/.opam/trunk/lib/mtime/clock/os -I /home/deepali/.opam/trunk/lib/ocaml/threads -I /home/deepali/.opam/trunk/lib/ocaml/unix -I /home/deepali/.opam/trunk/lib/optint -I /home/deepali/.opam/trunk/lib/psq -I /home/deepali/.opam/trunk/lib/result -I /home/deepali/.opam/trunk/lib/seq -I /home/deepali/.opam/trunk/lib/stdlib-shims -I /home/deepali/.opam/trunk/lib/uring -I vendor/angstrom/lib/.angstrom.objs/byte -I vendor/httpaf/eio/.httpaf_eio.objs/byte -I vendor/httpaf/lib/.httpaf.objs/byte -no-alias-deps -opaque -open Dune__exe -o .FibTerminalHttpaf.eobjs/byte/dune__exe__FibTerminalHttpaf.cmo -c -impl FibTerminalHttpaf.ml)
+$ (cd _build/default && /home/deepali/.opam/trunk/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I .FibTerminalHttpaf.eobjs/byte -I .FibTerminalHttpaf.eobjs/native -I /home/deepali/.opam/trunk/lib/bigarray-compat -I /home/deepali/.opam/trunk/lib/bigstringaf -I /home/deepali/.opam/trunk/lib/cstruct -I /home/deepali/.opam/trunk/lib/ctypes -I /home/deepali/.opam/trunk/lib/domainslib -I /home/deepali/.opam/trunk/lib/eio -I /home/deepali/.opam/trunk/lib/eio/unix -I /home/deepali/.opam/trunk/lib/eio/utils -I /home/deepali/.opam/trunk/lib/eio_domainslib_interface -I /home/deepali/.opam/trunk/lib/eio_linux -I /home/deepali/.opam/trunk/lib/eio_luv -I /home/deepali/.opam/trunk/lib/eio_main -I /home/deepali/.opam/trunk/lib/faraday -I /home/deepali/.opam/trunk/lib/fmt -I /home/deepali/.opam/trunk/lib/integers -I /home/deepali/.opam/trunk/lib/logs -I /home/deepali/.opam/trunk/lib/luv -I /home/deepali/.opam/trunk/lib/luv/c -I /home/deepali/.opam/trunk/lib/luv/c_function_descriptions -I /home/deepali/.opam/trunk/lib/luv/c_type_descriptions -I /home/deepali/.opam/trunk/lib/luv_unix -I /home/deepali/.opam/trunk/lib/lwt-dllist -I /home/deepali/.opam/trunk/lib/mtime -I /home/deepali/.opam/trunk/lib/mtime/clock/os -I /home/deepali/.opam/trunk/lib/ocaml/threads -I /home/deepali/.opam/trunk/lib/ocaml/unix -I /home/deepali/.opam/trunk/lib/optint -I /home/deepali/.opam/trunk/lib/psq -I /home/deepali/.opam/trunk/lib/result -I /home/deepali/.opam/trunk/lib/seq -I /home/deepali/.opam/trunk/lib/stdlib-shims -I /home/deepali/.opam/trunk/lib/uring -I vendor/angstrom/lib/.angstrom.objs/byte -I vendor/angstrom/lib/.angstrom.objs/native -I vendor/httpaf/eio/.httpaf_eio.objs/byte -I vendor/httpaf/eio/.httpaf_eio.objs/native -I vendor/httpaf/lib/.httpaf.objs/byte -I vendor/httpaf/lib/.httpaf.objs/native -intf-suffix .ml -no-alias-deps -opaque -open Dune__exe -o .FibTerminalHttpaf.eobjs/native/dune__exe__FibTerminalHttpaf.cmx -c -impl FibTerminalHttpaf.ml)
+$ (cd _build/default && /home/deepali/.opam/trunk/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o FibTerminalHttpaf.exe /home/deepali/.opam/trunk/lib/domainslib/domainslib.cmxa /home/deepali/.opam/trunk/lib/bigarray-compat/bigarray_compat.cmxa /home/deepali/.opam/trunk/lib/cstruct/cstruct.cmxa -I /home/deepali/.opam/trunk/lib/cstruct /home/deepali/.opam/trunk/lib/lwt-dllist/lwt_dllist.cmxa /home/deepali/.opam/trunk/lib/fmt/fmt.cmxa /home/deepali/.opam/trunk/lib/eio_domainslib_interface/eio_domainslib_interface.cmxa /home/deepali/.opam/trunk/lib/eio/eio.cmxa /home/deepali/.opam/trunk/lib/ocaml/unix/unix.cmxa /home/deepali/.opam/trunk/lib/ocaml/threads/threads.cmxa -I /home/deepali/.opam/trunk/lib/ocaml /home/deepali/.opam/trunk/lib/mtime/mtime.cmxa /home/deepali/.opam/trunk/lib/mtime/clock/os/mtime_clock.cmxa -I /home/deepali/.opam/trunk/lib/mtime/clock/os /home/deepali/.opam/trunk/lib/eio/unix/eio_unix.cmxa -I /home/deepali/.opam/trunk/lib/ocaml /home/deepali/.opam/trunk/lib/stdlib-shims/stdlib_shims.cmxa /home/deepali/.opam/trunk/lib/integers/integers.cmxa -I /home/deepali/.opam/trunk/lib/integers /home/deepali/.opam/trunk/lib/ctypes/ctypes.cmxa -I /home/deepali/.opam/trunk/lib/ctypes /home/deepali/.opam/trunk/lib/luv/c_type_descriptions/luv_c_type_descriptions.cmxa /home/deepali/.opam/trunk/lib/luv/c_function_descriptions/luv_c_function_descriptions.cmxa /home/deepali/.opam/trunk/lib/luv/c/luv_c.cmxa -I /home/deepali/.opam/trunk/lib/luv/c /home/deepali/.opam/trunk/lib/result/result.cmxa /home/deepali/.opam/trunk/lib/luv/luv.cmxa /home/deepali/.opam/trunk/lib/luv_unix/luv_unix.cmxa -I /home/deepali/.opam/trunk/lib/luv_unix /home/deepali/.opam/trunk/lib/psq/psq.cmxa /home/deepali/.opam/trunk/lib/optint/optint.cmxa /home/deepali/.opam/trunk/lib/eio/utils/eio_utils.cmxa /home/deepali/.opam/trunk/lib/logs/logs.cmxa /home/deepali/.opam/trunk/lib/eio_luv/eio_luv.cmxa /home/deepali/.opam/trunk/lib/uring/uring.cmxa -I /home/deepali/.opam/trunk/lib/uring /home/deepali/.opam/trunk/lib/eio_linux/eio_linux.cmxa -I /home/deepali/.opam/trunk/lib/eio_linux /home/deepali/.opam/trunk/lib/eio_main/eio_main.cmxa /home/deepali/.opam/trunk/lib/bigstringaf/bigstringaf.cmxa -I /home/deepali/.opam/trunk/lib/bigstringaf vendor/angstrom/lib/angstrom.cmxa /home/deepali/.opam/trunk/lib/faraday/faraday.cmxa vendor/httpaf/lib/httpaf.cmxa vendor/httpaf/eio/httpaf_eio.cmxa /home/deepali/.opam/trunk/lib/logs/logs_fmt.cmxa .FibTerminalHttpaf.eobjs/native/dune__exe.cmx .FibTerminalHttpaf.eobjs/native/dune__exe__FibTerminalHttpaf.cmx)

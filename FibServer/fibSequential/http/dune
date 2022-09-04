@@ -1,0 +1,5 @@
+(executable 
+ (name httpfibServerSequential)
+ (libraries domainslib eio_main httpaf httpaf-eio faraday angstrom logs.fmt containers))
+
+(vendored_dirs vendor)

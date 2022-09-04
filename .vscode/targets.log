@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul 13 17:26:07 2022
+# Make data base, printed on Mon Aug 29 16:16:54 2022
 
 # Variables
 
@@ -49,11 +49,11 @@ CURDIR := /home/deepali/Music/Benchmark_fib_server
 # makefile
 SHELL = /bin/sh
 # environment
-SNAP_DATA = /var/snap/code/101
+SNAP_DATA = /var/snap/code/105
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:47869
+JOURNAL_STREAM = 8:47832
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -73,27 +73,27 @@ XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/d
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
-MANAGERPID = 1964
+MANAGERPID = 1714
 # environment
 VSCODE_CWD = /home/deepali
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/101/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/105/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/deepali/.opam/trunk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH = /home/deepali/.cargo/bin:/home/deepali/.opam/trunk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/deepali-Vostro-3546:@/tmp/.ICE-unix/2199,unix/deepali-Vostro-3546:/tmp/.ICE-unix/2199
+SESSION_MANAGER = local/deepali-Vostro-3546:@/tmp/.ICE-unix/1929,unix/deepali-Vostro-3546:/tmp/.ICE-unix/1929
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/deepali/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-SNAP = /snap/code/101
+SNAP = /snap/code/105
 # environment
-SNAP_VERSION = b06ae3b2
+SNAP_VERSION = e4503b30
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -101,9 +101,9 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 20790e761a8b4305b460985c6dacd51e
+INVOCATION_ID = c49f7c27f4a04e9ab587dbeae68c28dd
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/101/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/105/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -111,7 +111,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3349
+GIO_LAUNCHED_DESKTOP_FILE_PID = 9356
 # automatic
 %F = $(notdir $%)
 # environment
@@ -123,7 +123,7 @@ PWD = /home/deepali/Music/Benchmark_fib_server
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2157
+SSH_AGENT_PID = 1891
 # environment
 PKG_CONFIG_PATH = /home/deepali/.opam/trunk/lib/pkgconfig:
 # environment
@@ -139,7 +139,7 @@ HOME = /home/deepali
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/deepali/.config/Code/CachedData/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a
+VSCODE_CODE_CACHE_PATH = /home/deepali/.config/Code/CachedData/e4503b30fc78200f846c62cf8091b76ff5547662
 # environment
 LOGNAME = deepali
 # environment
@@ -169,7 +169,7 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/deepali/snap/code/101
+SNAP_USER_DATA = /home/deepali/snap/code/105
 # environment
 SHLVL = 0
 # environment
@@ -179,7 +179,7 @@ MAKE_VERSION := 4.2.1
 # environment
 USER = deepali
 # environment
-SNAP_REVISION = 101
+SNAP_REVISION = 105
 # environment
 CAML_LD_LIBRARY_PATH = /home/deepali/.opam/trunk/lib/stublibs:/home/deepali/.opam/trunk/lib/ocaml/stublibs:/home/deepali/.opam/trunk/lib/ocaml
 # makefile
@@ -197,7 +197,7 @@ MAKE_COMMAND := make
 # environment
 LANGUAGE = en_IN:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-8694f931-1.69.1-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-8694f931-1.70.2-main.sock
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
@@ -245,7 +245,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3400
+VSCODE_PID = 9406
 # variable set hash-table stats:
 # Load=117/1024=11%, Rehash=0, Collisions=16/139=12%
 
@@ -255,9 +255,9 @@ VSCODE_PID = 3400
 
 # Directories
 
-# . (device 2054, inode 12719739): 8 files, no impossibilities.
+# . (device 2054, inode 12719739): 10 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -290,7 +290,6 @@ makefile:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
@@ -305,15 +304,16 @@ GNUmakefile:
 # VPATH Search Paths
 
 # No 'vpath' search paths.
+ 
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 16 / storage = 148 B / avg = 9 B
-# current buf: size = 8162 B / used = 148 B / count = 16 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 18 / storage = 175 B / avg = 9 B
+# current buf: size = 8162 B / used = 175 B / count = 18 / avg = 9 B
 
-# strcache performance: lookups = 19 / hit rate = 15%
+# strcache performance: lookups = 21 / hit rate = 14%
 # hash-table stats:
-# Load=16/8192=0%, Rehash=0, Collisions=1/19=5%
-# Finished Make data base on Wed Jul 13 17:26:07 2022
+# Load=18/8192=0%, Rehash=0, Collisions=1/21=5%
+# Finished Make data base on Mon Aug 29 16:16:54 2022
 
  

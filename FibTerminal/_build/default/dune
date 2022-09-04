@@ -1,0 +1,5 @@
+(executable 
+ (name FibTerminalHttpaf)
+ (libraries domainslib eio_main httpaf httpaf-eio faraday angstrom logs.fmt))
+
+(vendored_dirs vendor)
