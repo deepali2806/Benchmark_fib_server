@@ -20,7 +20,8 @@ let rec fib_par pool n =
 
 
 let no_Fibers = 5 
-let m = Array.make no_Fibers (Eio_domainslib_interface.MVar.create_empty ());;
+let values = Array.make no_Fibers (Eio_domainslib_interface.MVar.create_empty ());;
+let result = Array.make no_Fibers (Eio_domainslib_interface.MVar.create_empty ());;
 (* let arr = Array.make 5   *)
 
 let main () =
@@ -29,16 +30,21 @@ let main () =
         Eio.Std.Switch.run @@ fun sw ->
             
             for i = 0 to (no_Fibers-1) do
-                let start = Unix.gettimeofday () in
                 Fiber.fork ~sw ( fun () -> 
-                    (* let n = Random.int 5 in *)
-                    let _ = Eio_domainslib_interface.MVar.put (41+i) (m.(i)) in
-                    () 
+                    let start = Unix.gettimeofday () in
+                    
+                    let n = (41 + i)  in
+                    let _ = Eio_domainslib_interface.MVar.put n (values.(i)) in
+                    (* Wait for answers *)
+                    let ans = Eio_domainslib_interface.MVar.take (result.(i)) in 
+                    printf "\nResult of fiber %d is Fib %d : %d\n%!" i n ans;
+                    
+                    let stop = Unix.gettimeofday () in
+                    Printf.printf "\n Fiber %d Response time: %fs\n\n%!" i (stop -. start)
                 );
                 (* Adding Delay *)
-                Unix.sleep 1;
-                let stop = Unix.gettimeofday () in
-                Printf.printf "\n Fiber %d Response time: %fs\n\n%!" i (stop -. start)
+                (* Unix.sleep 1; *)
+                
             done
         ); 
     ) in 
@@ -47,12 +53,13 @@ let main () =
     in
         T.run pool (fun () -> 
             T.parallel_for pool ~start:0 ~finish:(no_Fibers - 1) ~body:(fun i ->
-                let n = Eio_domainslib_interface.MVar.take (m.(i)) in
-                let start_c = Unix.gettimeofday () in
-                let v = fib_par pool (n) in
-                printf "\n%d Fib %d ans %d" i n v;
-                let stop_c = Unix.gettimeofday () in
-                Printf.printf "\n Fiber %d Computation time: %fs\n\n%!" i (stop_c -. start_c)
+                let pr = T.async pool ( fun _ ->
+                        let n = Eio_domainslib_interface.MVar.take (values.(i)) in
+                        let v = fib_par pool (n) in
+                        let _ = Eio_domainslib_interface.MVar.put n (result.(i)) in
+                        printf "\nDomainslib: %d Fib %d ans %d" i n v;
+                    ) in
+                let _ = T.await pool pr in ();
             ) 
     );
         

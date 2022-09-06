@@ -24,13 +24,10 @@
     | "/" -> 
               let start = Unix.gettimeofday () in
               let n = ((Atomic.get p) mod 5) in
-              let start_c = Unix.gettimeofday () in
               let ans = fib (41 + n) in
               let response_ok = Response.create ~headers `OK in
               Reqd.respond_with_bigstring reqd response_ok text;
               traceln "\nEio Fibre ends. Ans Fib %d:%d Ends%!" (41+n) ans;
-              let stop_c = Unix.gettimeofday () in
-              printf "\n Eio Fiber Computation time: %fs\n%!" (stop_c -. start_c);
               let stop = Unix.gettimeofday () in
               printf "\n Eio Fiber Response time: %fs\n%!" (stop -. start);
               Atomic.incr p
