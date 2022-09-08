@@ -28,17 +28,17 @@ let main () =
  let eio_domain = Domain.spawn( fun () ->
         Eio_linux.run ( fun _env ->
         Eio.Std.Switch.run @@ fun sw ->
-            
+
+        let start = Unix.gettimeofday () in
+
             for i = 0 to (no_Fibers-1) do
-                Fiber.fork ~sw ( fun () -> 
-                    let start = Unix.gettimeofday () in
-                    
-                    let n = (41 + i)  in
+                Fiber.fork ~sw ( fun () ->                  
+                    let n = (45)  in
                     let _ = Eio_domainslib_interface.MVar.put n (values.(i)) in
                     (* Wait for answers *)
                     let ans = Eio_domainslib_interface.MVar.take (result.(i)) in 
                     printf "\nResult of fiber %d is Fib %d : %d\n%!" i n ans;
-                    
+
                     let stop = Unix.gettimeofday () in
                     Printf.printf "\n Fiber %d Response time: %fs\n\n%!" i (stop -. start)
                 );
