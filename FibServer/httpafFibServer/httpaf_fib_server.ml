@@ -20,6 +20,7 @@ let pool = T.setup_pool ~num_additional_domains:(num_domains - 1) ();;
 let values = Array.make 1000 (Eio_domainslib_interface.MVar.create_empty ());;
 let result = Array.make 1000 (Eio_domainslib_interface.MVar.create_empty ());;
 let i = Atomic.make 0
+(* let total_response_time = Atomic.make 0.0 *)
 
 
 let rec fib n =
@@ -33,8 +34,8 @@ let rec fib_par pool n =
     let b = T.async pool (fun _ -> fib_par pool (n-2)) in
     T.await pool a + T.await pool b
 
-
-let text = "CHAPTER I. Down the Rabbit-Hole  Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, <and what is the use of a book,> thought Alice <without pictures or conversations?> So she was considering in her own mind (as well as she could, for the hot day made her feel very sleepy and stupid), whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her. There was nothing so very remarkable in that; nor did Alice think it so very much out of the way to hear the Rabbit say to itself, <Oh dear! Oh dear! I shall be late!> (when she thought it over afterwards, it occurred to her that she ought to have wondered at this, but at the time it all seemed quite natural); but when the Rabbit actually took a watch out of its waistcoat-pocket, and looked at it, and then hurried on, Alice started to her feet, for it flashed across her mind that she had never before seen a rabbit with either a waistcoat-pocket, or a watch to take out of it, and burning with curiosity, she ran across the field after it, and fortunately was just in time to see it pop down a large rabbit-hole under the hedge. In another moment down went Alice after it, never once considering how in the world she was to get out again. The rabbit-hole went straight on like a tunnel for some way, and then dipped suddenly down, so suddenly that Alice had not a moment to think about stopping herself before she found herself falling down a very deep well. Either the well was very deep, or she fell very slowly, for she had plenty of time as she went down to look about her and to wonder what was going to happen next. First, she tried to look down and make out what she was coming to, but it was too dark to see anything; then she looked at the sides of the well, and noticed that they were filled with cupboards......"
+let text = "I am Deepali Here :-)"
+(* let text = "CHAPTER I. Down the Rabbit-Hole  Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, <and what is the use of a book,> thought Alice <without pictures or conversations?> So she was considering in her own mind (as well as she could, for the hot day made her feel very sleepy and stupid), whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her. There was nothing so very remarkable in that; nor did Alice think it so very much out of the way to hear the Rabbit say to itself, <Oh dear! Oh dear! I shall be late!> (when she thought it over afterwards, it occurred to her that she ought to have wondered at this, but at the time it all seemed quite natural); but when the Rabbit actually took a watch out of its waistcoat-pocket, and looked at it, and then hurried on, Alice started to her feet, for it flashed across her mind that she had never before seen a rabbit with either a waistcoat-pocket, or a watch to take out of it, and burning with curiosity, she ran across the field after it, and fortunately was just in time to see it pop down a large rabbit-hole under the hedge. In another moment down went Alice after it, never once considering how in the world she was to get out again. The rabbit-hole went straight on like a tunnel for some way, and then dipped suddenly down, so suddenly that Alice had not a moment to think about stopping herself before she found herself falling down a very deep well. Either the well was very deep, or she fell very slowly, for she had plenty of time as she went down to look about her and to wonder what was going to happen next. First, she tried to look down and make out what she was coming to, but it was too dark to see anything; then she looked at the sides of the well, and noticed that they were filled with cupboards......" *)
 
 let text = Bigstringaf.of_string ~off:0 ~len:(String.length text) text
 
@@ -45,18 +46,21 @@ let request_handler _ reqd =
   | "/" -> 
             let start = Unix.gettimeofday () in
             let index = (Atomic.get i) in
-            let n = (index mod 5) in
+            (* let n = (index mod 5) in *)
             Atomic.incr i;     
             
-            let _ = Eio_domainslib_interface.MVar.put (41 + n) ( values.(index)) in ();
+            let _ = Eio_domainslib_interface.MVar.put (45) ( values.(index)) in ();
             let ans = Eio_domainslib_interface.MVar.take ( result.(index)) in 
-            Printf.printf "Eio : Fiber %d Fib %d : %d" index n ans;
+            Printf.printf "Eio : Fiber %d Fib 45 : %d" index ans;
             
             let response_ok = Response.create ~headers `OK in
             Reqd.respond_with_bigstring reqd response_ok text;
 
             let stop = Unix.gettimeofday () in
-            Printf.printf "\n Eio Fiber Response time: %fs\n\n%!" (stop -. start)
+            let response_time = (stop -. start) in
+            (* Atomic.fetch_and_add total_response_time response_time; *)
+            Printf.printf "\n Eio Fiber Response time: %fs\n\n%!" response_time;
+            (* printf "\n Total Response time till now: %fs\n%!" (Atomic.get total_response_time) ; *)
 
   | "/exit" ->
     exit 0
